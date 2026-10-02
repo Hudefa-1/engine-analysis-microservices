@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Engine Configuration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Diesel Engine Configuration</h1>
+
+    <div class="card">
+
+        <h2>Motor konfigurieren</h2>
+
+        <form id="configurationForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="engineName">Engine Name:</label>
+                    <input type="text" id="engineName" value="MTU-2000">
+                </div>
+
+                <div class="form-group">
+                    <label for="startingSystem">Starting System:</label>
+                    <select id="startingSystem">
+                        <option value="electric">electric</option>
+                        <option value="hydraulic">hydraulic</option>
+                    </select>
+                </div>
+
+                <!-- FLUID: diese Kombination kann failed ergeben -->
+                <div class="form-group">
+                    <label for="fuelSystem">Fuel System:</label>
+                    <select id="fuelSystem">
+                        <option value="standard">standard</option>
+                        <option value="high-pressure">high-pressure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="coolingSystem">Cooling System:</label>
+                    <select id="coolingSystem">
+                        <option value="water">water</option>
+                        <option value="advanced-water">advanced-water</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="oilSystem">Oil System:</label>
+                    <select id="oilSystem">
+                        <option value="standard">standard</option>
+                        <option value="extended">extended</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exhaustSystem">Exhaust System:</label>
+                    <select id="exhaustSystem">
+                        <option value="standard">standard</option>
+                        <option value="low-emission">low-emission</option>
+                    </select>
+                </div>
+
+                <!-- MECHANICAL: diese Kombination kann failed ergeben -->
+                <div class="form-group">
+                    <label for="powerTransmission">Power Transmission:</label>
+                    <select id="powerTransmission">
+                        <option value="direct">direct</option>
+                        <option value="hybrid">hybrid</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="gearboxOptions">Gearbox:</label>
+                    <select id="gearboxOptions">
+                        <option value="automatic">automatic</option>
+                        <option value="manual">manual</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mountingSystem">Mounting System:</label>
+                    <select id="mountingSystem">
+                        <option value="fixed">fixed</option>
+                        <option value="flexible">flexible</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="engineManagementSystem">Engine Management:</label>
+                    <select id="engineManagementSystem">
+                        <option value="EMS-1">EMS-1</option>
+                        <option value="EMS-2">EMS-2</option>
+                    </select>
+                </div>
+
+                <!-- ELECTRICAL: diese Kombination kann failed ergeben -->
+                <div class="form-group">
+                    <label for="auxiliaryPto">Auxiliary PTO:</label>
+                    <select id="auxiliaryPto">
+                        <option value="standard">standard</option>
+                        <option value="heavy-duty">heavy-duty</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="monitoringControlSystem">Monitoring & Control:</label>
+                    <select id="monitoringControlSystem">
+                        <option value="standard">standard</option>
+                        <option value="advanced">advanced</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button type="button" id="saveButton">
+                    Konfiguration speichern
+                </button>
+
+                <button type="button" id="analysisButton" disabled>
+                    Analyse starten
+                </button>
+
+            </div>
+
+            <div class="save-info">
+                <p id="configurationMessage"></p>
+                <p id="analysisMessage"></p>
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Analyse Status</h2>
+
+        <div class="analysis-grid">
+
+            <div class="analysis-box">
+                <div class="analysis-title">
+                    <h3>Fluid</h3>
+                    <div id="fluidSpinner" class="spinner hidden"></div>
+                </div>
+                <p>Status: <span id="fluidStatus">-</span></p>
+                <p>Result: <span id="fluidResult">-</span></p>
+            </div>
+
+            <div class="analysis-box">
+                <div class="analysis-title">
+                    <h3>Mechanical</h3>
+                    <div id="mechanicalSpinner" class="spinner hidden"></div>
+                </div>
+                <p>Status: <span id="mechanicalStatus">-</span></p>
+                <p>Result: <span id="mechanicalResult">-</span></p>
+            </div>
+
+            <div class="analysis-box">
+                <div class="analysis-title">
+                    <h3>Electrical</h3>
+                    <div id="electricalSpinner" class="spinner hidden"></div>
+                </div>
+                <p>Status: <span id="electricalStatus">-</span></p>
+                <p>Result: <span id="electricalResult">-</span></p>
+            </div>
+
+            <div class="analysis-box">
+                <div class="analysis-title">
+                    <h3>Engine Management</h3>
+                    <div id="engineSpinner" class="spinner hidden"></div>
+                </div>
+                <p>Status: <span id="engineStatus">-</span></p>
+                <p>Result: <span id="engineResult">-</span></p>
+            </div>
+
+        </div>
+
+        <div class="overall-result">
+            Gesamtergebnis:
+            <span id="overallResult">-</span>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

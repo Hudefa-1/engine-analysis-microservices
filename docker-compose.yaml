@@ -1,0 +1,44 @@
+services:
+
+  configuration:
+    build: ./configuration
+    container_name: configuration
+    ports:
+      - "8080:8080"
+    environment:
+      FLUID_SERVICE_URL: http://fluid-analysis:8081
+      MECHANICAL_SERVICE_URL: http://mechanical-analysis:8082
+      ELECTRICAL_SERVICE_URL: http://electrical-analysis:8083
+      ENGINE_MANAGEMENT_SERVICE_URL: http://engine-management:8084
+
+  fluid-analysis:
+    build: ./fluid-analysis
+    container_name: fluid-analysis
+    ports:
+      - "8081:8081"
+    environment:
+      CONFIGURATION_SERVICE_URL: http://configuration:8080
+
+  mechanical-analysis:
+    build: ./mechanical-analysis
+    container_name: mechanical-analysis
+    ports:
+      - "8082:8082"
+    environment:
+      CONFIGURATION_SERVICE_URL: http://configuration:8080
+
+  electrical-analysis:
+    build: ./electrical-analysis
+    container_name: electrical-analysis
+    ports:
+      - "8083:8083"
+    environment:
+      CONFIGURATION_SERVICE_URL: http://configuration:8080
+
+  engine-management:
+    build: ./engine-management
+    container_name: engine-management
+    ports:
+      - "8084:8084"
+    environment:
+      CONFIGURATION_SERVICE_URL: http://configuration:8080
